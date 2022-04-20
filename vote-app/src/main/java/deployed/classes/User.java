@@ -1,4 +1,4 @@
-package dev.khayman;
+package deployed.classes;
 
 public class User {
 	private String username;

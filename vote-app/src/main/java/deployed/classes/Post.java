@@ -1,4 +1,4 @@
-package dev.khayman;
+package deployed.classes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

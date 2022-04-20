@@ -1,9 +1,9 @@
-package dev.khayman;
+package deployed.classes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Comments {
+public class Comment {
 	private int commentId;
 	private int relatedPost;
 	private String username;
@@ -11,7 +11,7 @@ public class Comments {
 	private Date datePosted;
 	
 	
-	public Comments() {
+	public Comment() {
 		commentId = 0;
 		relatedPost = 0;
 		username = "";
@@ -20,7 +20,7 @@ public class Comments {
 		
 	}
 
-	public Comments(int id, int rel, String username, String body, Date day) {
+	public Comment(int id, int rel, String username, String body, Date day) {
 		commentId = id;
 		relatedPost = rel;
 		this.username = username;

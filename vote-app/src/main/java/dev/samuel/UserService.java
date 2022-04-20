@@ -14,7 +14,7 @@ public class UserService {
 	
 	
 	public void  createComment(String username, String Body, int rel) {
-		Comments c = new Comments();
+		Comment c = new Comment();
 		c.setCommentBody(Body);
 		c.setUsername(username);
 		c.setRelatedPost(rel);
@@ -29,7 +29,7 @@ public class UserService {
 	}
 		
 	
-	public Boolean editCommnet(Comments c) {
+	public Boolean editCommnet(Comment c) {
 		
 		Date today = new Date();
 		c.setDatePosted(today);
@@ -39,18 +39,18 @@ public class UserService {
 		return true;
 	}
 	
-	public  Comments getComment(int id) {
+	public  Comment getComment(int id) {
 		
 		return commentDAO.getById(id);
 	}
 	
-	public Comments getUserComments(User u) {
+	public Comment getUserComments(User u) {
 		return commentDAO.getById(u);
 		
 	}
 	
 	
-	public Comments getComments(int id) {
+	public Comment getComments(int id) {
 		return commentDAO.getById(id);
 		
 	}
