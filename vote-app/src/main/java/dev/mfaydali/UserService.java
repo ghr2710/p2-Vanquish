@@ -29,22 +29,24 @@ public class UserService {
 		Date today = new Date();
 		p.setDatePosted(today);
 		//Boolean result = postDAO.update(p);
-		return true;
+		return result;
 	}
 
 	public Post getPost(int id) {
-		return PostDAO.getById(id);
+		Post p = PostDAO.getById(id);
+		return p;
 	}
 
-	public Post getUserPosts(User u) {
-		Date today = new Date();
+	public Post[] getUserPosts(User u) {
+		Post[] postList = postDAO.getPostsByUser();
 
-		return postDAO.getById(u);
+		return postList;
 
 	}
 
-	public List<Post> getAllPosts(){
-		return postDAO.getAllPosts();
+	public Post[] getAllPosts(){
+		Post[] postList = postDAO.getAllPosts();
+		return postList;
 	}
 
 
