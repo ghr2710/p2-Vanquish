@@ -2,7 +2,9 @@ package net.revature.services;
 
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,7 +13,11 @@ import org.mockito.Mock;
 
 import deployed.classes.User;
 import deployed.exceptions.IncorrectCredsException;
+import deployed.exceptions.UserAlreadyExistsException;
+import deployed.exceptions.UserDoesNotExistException;
 import deployed.services.userService;
+import dev.chopra.IncorrectCredentialsException;
+import dev.chopra.UsernameAlreadyExistsException;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -21,8 +27,32 @@ public class UserServiceTest {
 	private UserDAO userDAO;
 	
 	@InjectMocks
-	userService userServ = new userService();
+	userService userServ= new userService();
 	
+	
+	public void CreateAcctsuccessfully() throws UserAlreadyExistsException {
+		User u = new User();
+		
+		// mock userDao.create(u)
+		when(userDao.create(u)).thenReturn("TestUser");
+		
+		Boolean result = userServ.createAcct(u);
+		
+		// returns id
+		assertNotEquals(0, result.get());
+	}
+	@Test
+	public void registerUsernameTaken() {
+		User u = new User();
+		u.setUsername("kchopr");
+		
+		// mock userDao.create(newUser)
+		when(userDao.create(u)).thenReturn(0);
+		
+		assertThrows(UserAlreadyExistsException.class, () -> {
+			userServ.createAcct(u);
+		});
+	}
 	@Test
 	public void logInSuccessfully() throws IncorrectCredsException{
 		String username = "TestUser";
@@ -40,5 +70,19 @@ public class UserServiceTest {
 		
 
 }
+	@Test
+	public void logInWrongUsername() {
+		String username = "abc123";
+		String password = "1234567890";
+		
+		// we need to mock userDao.getByUsername(username)
+		when(userDao.getByUsername(username)).thenReturn(null);
+		
+		assertThrows(IncorrectCredsException.class, () -> {
+			// put the code that we're expecting to throw the exception
+			userServ.logIn(username, password);
+		});
+	}
 
 }
+
