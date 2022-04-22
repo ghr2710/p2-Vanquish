@@ -47,17 +47,27 @@ public class userService {
 		}
 	}
 	
-	public void  deleteUser(String username) throws UserDoesNotExistException{
+	public Boolean deleteUser(String username) throws UserDoesNotExistException{
 		// Boolean exists = DAO.userExists(username)
-		// Post[] postList = getUserPosts();
-		//Comment[] commentList = getUserComments();
-		//for(int i=0; i<postList.length; i++){
-			//deletePost(postList[i].getPostId());
+		//if(exists){
+			// Post[] postList = getUserPosts();
+			//Comment[] commentList = getUserComments();
+			//for(int i=0; i<postList.length; i++){
+				//deletePost(postList[i].getPostId());
+			//}
+			//for(int i=0; i<commentList.length; i++){
+				//deleteComment(commentList[i].getCommentId());
+			//}
+			//try{
+				//DAO.deleteUser(username);	
+			//catch catch (Exception e){
+				//throw new UserDoesNotExistException
+			//}
 		//}
-		//for(int i=0; i<commentList.length; i++){
-			//deleteComment(commentList[i].getCommentId());
+		//else{
+			//throw new UserDoesNotExistException
 		//}
-		// DAO.deleteUser(username);	
+		return true;
 	}
 	
 	public User logIn(String username, String password) throws IncorrectCredsException{
