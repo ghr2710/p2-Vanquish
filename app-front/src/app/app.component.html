@@ -1,0 +1,66 @@
+<div class="header">
+  <img id="header-img" src="assets/img/main banner.png"> 
+ </div>
+ 
+ <div class="row">
+   <div class="leftcolumn">
+     <!-- posts go here -->
+    <app-posts></app-posts>
+   </div>
+   <div class="rightcolumn">
+     <div class="card">
+       <h2>Log In</h2>
+       <div class="login-body" style="height:100px;">
+         <form >
+  
+             <input type="text" id="username" name="username" placeholder="Username">
+         
+         
+             <input type="password" id="password" name="password" placeholder="password">
+ 
+          
+         
+             <input type="submit" value="Login">
+         </form>
+ 
+         
+     </div>
+     <br><br><br>
+     <h4 >
+         <span>New User? Register Bellow</span>
+    
+         </h4>
+         
+       <!-- <p class="dropdown-content">New User? <a href="#" >Register Here</a> </p> -->
+     
+     </div>
+     <div class="card">
+       <h3>Popular Posts | Recent Posts</h3>
+       <div class="popular-posts">Cake vs Pie</div><br>
+       <div class="popular-posts">Cats vs Dogs</div><br>
+       <div class="popular-posts">Reading vs Painting</div>
+     </div>
+      <div class="card">
+       <h3>Register Today!</h3>
+       <p>Some text..</p>
+       <form >
+         <label>Pick a Unique User Name</label>
+         <input type="text" id="username1" name="username1" placeholder="Username" required>
+         <label style="font-size: 12px;">Password must be at least 8 characters long</label>
+         <input type="password" id="password1" name="password1" placeholder="password" required><img id="eye" onclick="reveal()"src="assets/img/eye.png">
+         <input type="password" id="password2" name="password2" placeholder="confirm password" required>
+ 
+         <p id="validate-pass"  style="color:rgb(250, 117, 117); font-size: 14px;"> </p>
+         <button type="button" onclick="passValidator()">Submit</button>
+     </form>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="footer">
+   <h2>Footer</h2>
+ 
+ </div>
+ 
+
+ 
