@@ -38,8 +38,8 @@ public class UserServiceTest {
 		
 		Boolean result = userServ.createAcct(u);
 		
-		// returns id
-		assertNotEquals(0, result.get());
+		// returns Username
+		assertNotEquals(0, result.getUsername());
 	}
 	@Test
 	public void registerUsernameTaken() {

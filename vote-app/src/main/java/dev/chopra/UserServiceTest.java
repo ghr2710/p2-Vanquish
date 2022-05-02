@@ -39,7 +39,7 @@ public void CreateAcctsuccessfully() throws UserAlreadyExistsException {
 	User result = userCreated.CreateAcct(u);
 	
 	// returns id
-	assertNotEquals(0, result.getId());
+	assertNotEquals(0, result.get());
 	
 	
 }
@@ -84,10 +84,18 @@ public void logInWrongUsername() {
 	});
 }
 
+
+
+
+@Test
 public void deleteUserSuccessfully() throws UserDoesNotExistException{
 	
 	
-	When(userDAO.deleteUser(username)).thenReturn(username)
+	When(userDAO.deleteUser(username)).thenReturn("user deleted successfully");
+	
+	
+	
+	
 	assertDoesNotThrow(() -> {
 		userDao.delete(TestUser);
 	});
