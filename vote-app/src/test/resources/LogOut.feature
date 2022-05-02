@@ -5,5 +5,5 @@ Feature: user logout
 	Scenario: successful logout
 		Given the user is on the home page
 		When the user clicks the logout button
-		Then the page will redirect to the main page
+		Then a message box will display stating that the log out was successful
 		
