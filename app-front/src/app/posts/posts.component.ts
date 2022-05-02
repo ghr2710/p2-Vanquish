@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
  posts: any;
+ countVote = 0;
+ countVote2= 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -25,4 +27,18 @@ export class PostsComponent implements OnInit {
       
     }
   }
+//this is for the green
+    voteCount(){
+   this.countVote +=1;
+
+  }
+  //this is for the yellow
+   voteCount2(){
+    this.countVote2 +=1;
+ 
+   }
+  
+
 }
+
+
