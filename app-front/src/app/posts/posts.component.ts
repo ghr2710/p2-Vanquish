@@ -11,12 +11,18 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
   
   async getPosts() {
     let resp = await fetch('https://mocki.io/v1/72f60eb3-e51d-4164-9248-c3e80891ffcc');
     if (resp.status===200) {
       this.posts = await resp.json();
+    }
+    
+    function votecount() {
+      let  votecount: 0;
+      
     }
   }
 }
