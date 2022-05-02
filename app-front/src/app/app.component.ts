@@ -21,7 +21,7 @@ export class AppComponent {
 //   if (x != y) {
 //     text = "Invalid input/Passwords don't match";
 //   } else if  (x==y) {
-//     text = "Registered sucessfully!";
+//     text = "Registered successfully!";
 //   } else if ( z= undefined) {
 //     text = "Username can't be blank";
 //   }
@@ -32,8 +32,8 @@ export class AppComponent {
 
 //needs a fix
 // function reveal(){
-//   let x = document.getElementById("password1");
-//   let y = document.getElementById("password2");
+//   let x: any = document.getElementById("password1") as HTMLInputElement;
+//   let y: any = document.getElementById("password2")as HTMLInputElement;
 //   if (x.type === "password" || y.type === "password" ) {
 //     x.type = "text";
 //     y.type = "text";
