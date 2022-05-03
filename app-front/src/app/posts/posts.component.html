@@ -1,7 +1,7 @@
 <div   class="card" *ngFor="let element of posts" >
 
-    <h2>post <span>{{element.postid}}</span></h2> 
-    <h5 id="datePosted">  {{element.date_posted}}</h5>
+    <h2>post by <span style="color: aqua;">{{element.username}}</span></h2> 
+    <h5 id="datePosted">  {{element.date_posted | date:'mediumDate'}}</h5>
     <div class="post-body" > <span style="color: rgb(0, 255, 68)">{{element.option1name}} </span> VS <span style="color:rgb(241, 253, 6)"> {{element.option2name}} </span>  </div>
 
     <!-- vote buttons -->
