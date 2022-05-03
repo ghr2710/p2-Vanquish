@@ -1,18 +1,27 @@
-<div class="card">
-    <h2>POST 1</h2>
-    <h5 id="datePosted"> Dec 7, 2017</h5>
-    <div class="post-body" >post body goes here...</div>
+<div   class="card" *ngFor="let element of posts" >
+
+    <h2>post <span>{{element.postid}}</span></h2> 
+    <h5 id="datePosted">  {{element.date_posted}}</h5>
+    <div class="post-body" > <span style="color: rgb(0, 255, 68)">{{element.option1name}} </span> VS <span style="color:rgb(241, 253, 6)"> {{element.option2name}} </span>  </div>
 
     <!-- vote buttons -->
     <p><span id="green">{{countVote}}</span>  <img id ="thumbs_up" src="assets/img/thumbs_up.svg" (click)="voteCount()" > &nbsp; &nbsp; 
     <span id="yellow">{{countVote2}}</span> <img id ="thumbs_up2" src="assets/img/thumbs_up2.svg" (click)="voteCount2()"></p>
     
-    <p>vote <span style="font-weight: bold;color: rgb(0, 255, 68);">GREEN</span> for for first option or vote <span style="font-weight: bold; color: rgb(241, 253, 6);">YELLOW</span> for the second option </p>
+    <!-- <p>vote <span style="font-weight: bold;color: rgb(0, 255, 68);">GREEN</span> for for first option or vote <span style="font-weight: bold; color: rgb(241, 253, 6);">YELLOW</span> for the second option </p> -->
     <p id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">sam24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
       quis nostrud exercitation ullamco.</p>
+
+   
   </div>
-  <div class="card">
+
+
+
+
+  <!-- hard code html for reference  -->
+
+  <!-- <div class="card">
     <h2>POST 2</h2>
     <h5>Title description, Sep 2, 2017</h5>
     <div class="post-body" >post body goes here...</div>
@@ -23,7 +32,7 @@
 
 
 
-  <!--  comment section -->
+  
     <p id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">sam24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
         quis nostrud exercitation ullamco.</p>
@@ -36,4 +45,4 @@
     <p id="comment"><span id="userComment" style="font-weight: bold ;color: black;">John24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
       quis nostrud exercitation ullamco.</p>
-  </div>
+  </div> -->

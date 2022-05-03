@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'vote-app';
+  loginStatus= true;  //show or hide posts by setting this var true/false 
 }
+
+
+
 
 // function passValidator() {
 //   // Get the value of the input field with id
