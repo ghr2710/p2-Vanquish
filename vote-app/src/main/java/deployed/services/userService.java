@@ -2,17 +2,21 @@ package deployed.services;
 
 import java.util.Date;
 
-import deployed.classes.*;
-import deployed.exceptions.*;
+import deployed.classes.Comment;
+import deployed.classes.Post;
+import deployed.classes.User;
+import deployed.exceptions.IncorrectCredsException;
+import deployed.exceptions.UserAlreadyExistsException;
+import deployed.exceptions.UserDoesNotExistException;
 
 public class userService {
-	
+
 	//ADD DAO STUFF HERE
-	
+
 	public userService() {
 		//DECLARE DAO's HERE
 	}
-	
+
 	public Boolean createAcct(User u) throws UserAlreadyExistsException{
 		Boolean exists = false;
 		try {
@@ -22,9 +26,9 @@ public class userService {
 			//User exists query went wrong
 			return false;
 		}
-		
+
 		Boolean userCreated = false;
-		
+
 		if (!exists) {
 			try {
 				//userCreated = DAO.createUser(u);
@@ -46,30 +50,30 @@ public class userService {
 			return false;
 		}
 	}
-	
+
 	public Boolean deleteUser(String username) throws UserDoesNotExistException{
 		// Boolean exists = DAO.userExists(username)
 		//if(exists){
-			// Post[] postList = getUserPosts();
-			//Comment[] commentList = getUserComments();
-			//for(int i=0; i<postList.length; i++){
-				//deletePost(postList[i].getPostId());
-			//}
-			//for(int i=0; i<commentList.length; i++){
-				//deleteComment(commentList[i].getCommentId());
-			//}
-			//try{
-				//DAO.deleteUser(username);	
-			//catch catch (Exception e){
-				//throw new UserDoesNotExistException
-			//}
+		// Post[] postList = getUserPosts();
+		//Comment[] commentList = getUserComments();
+		//for(int i=0; i<postList.length; i++){
+		//deletePost(postList[i].getPostId());
+		//}
+		//for(int i=0; i<commentList.length; i++){
+		//deleteComment(commentList[i].getCommentId());
+		//}
+		//try{
+		//DAO.deleteUser(username);
+		//catch catch (Exception e){
+		//throw new UserDoesNotExistException
+		//}
 		//}
 		//else{
-			//throw new UserDoesNotExistException
+		//throw new UserDoesNotExistException
 		//}
 		return true;
 	}
-	
+
 	public User logIn(String username, String password) throws IncorrectCredsException{
 		User u = new User();
 		//Boolean exists = DAO.userExists(username);
@@ -98,7 +102,7 @@ public class userService {
 		}
 		return u;
 	}
-	
+
 	public Post createPost(String postBody, String option1, String option2) {
 		Post p = new Post();
 		// PostDAO.createPost();
@@ -138,42 +142,47 @@ public class userService {
 		Post[] postList = postDAO.getAllPosts();
 		return postList;
 	}
-	
+
 	public void createComment(String username, String Body, int rel) {
 		Comment c = new Comment();
 		c.setCommentBody(Body);
 		c.setUsername(username);
 		c.setRelatedPost(rel);
 		//c.setCommentId (0);
-		
+
 		//commentDAO.create(c);
-	
-	} 
-	
-	public void deleteComment(int id) {
-	//	commentDAO.deleteComment(id);
+
 	}
-		
-	
+
+	public void deleteComment(int id) {
+		//	commentDAO.deleteComment(id);
+	}
+
+
 	public Boolean editCommnet(Comment c) {
 		Date today = new Date();
 		c.setDatePosted(today);
-		 
+
 		// Boolean result = commentDAO.update(c);
 
 		return true;
 	}
-	
+
 	public Comment getComment(int id) {
 		return commentDAO.getById(id);
 	}
-	
+
 	public Comment[] getUserComments(User u) {
 		return commentDAO.getByUser(u.getUsername());
 	}
-	
+
 	public Comment[] getComments(int id) {
 		return commentDAO.getByPost(id);
-		
 	}
+
+	public Votes[] checkVotes(String username) {
+		Votes [] v = VotesDAO.getByUsername(username);
+		return v;
+	}
+
 }
