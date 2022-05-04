@@ -4,6 +4,10 @@
  
  <div class="row">
    <div class="leftcolumn">
+     <!-- create post form goes here -->
+
+     <app-create-post  *ngIf="loginStatus"></app-create-post>
+
      <!-- posts go here -->
     <app-posts *ngIf="loginStatus"></app-posts>
 

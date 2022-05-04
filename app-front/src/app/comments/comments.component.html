@@ -1,1 +1,6 @@
-<p>comments works!</p>
+<div *ngFor="let comment of comments">
+
+<p  id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">{{comment.username}}: </span>
+    {{comment.commentbody}}</p>
+  
+</div>
