@@ -1,36 +1,4 @@
-<<<<<<< HEAD
-<div class="card">
-  <h2>POST 1</h2>
-  <h5 id="datePosted"> Dec 7, 2017</h5>
-  <div class="post-body" >post body goes here...</div>
 
-  <!-- vote buttons -->
-  <p><span id="green">{{countVote}}</span>  <img id ="thumbs_up" src="assets/img/thumbs_up.svg" (click)="voteCount()" > &nbsp; &nbsp; 
-  <span id="yellow">{{countVote2}}</span> <img id ="thumbs_up2" src="assets/img/thumbs_up2.svg" (click)="voteCount2()"></p>
-  
-  <p>vote <span style="font-weight: bold;color: rgb(0, 255, 68);">GREEN</span> for for first option or vote <span style="font-weight: bold; color: rgb(241, 253, 6);">YELLOW</span> for the second option </p>
-  <p id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">sam24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-    quis nostrud exercitation ullamco.</p>
-</div>
-<div class="card">
-  <h2>POST 2</h2>
-  <h5>Title description, Sep 2, 2017</h5>
-  <div class="post-body" >post body goes here...</div>
-<p> <span id="green">34</span> <img id ="thumbs_up" src="assets/img/thumbs_up.svg">
- &nbsp; &nbsp; <span id="yellow">3</span> 
-  <img id ="thumbs_up2"src="assets/img/thumbs_up2.svg"></p>
-<p>vote <span style="font-weight: bold;color: rgb(0, 255, 68);">GREEN</span> for for first option or vote <span style="font-weight: bold; color: rgb(241, 253, 6);">YELLOW</span> for the second option </p>
-
-
-
-<!--  comment section -->
-  <p id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">sam24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-      quis nostrud exercitation ullamco.</p>
-    
-  <p id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">Mike34: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
-=======
 <div   class="card" *ngFor="let element of posts" >
 
     <h3>post by <span style="color: aqua;">{{element.username}}</span></h3> 
@@ -53,8 +21,6 @@
   </form>
 
 
-    <!-- <p id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">{{comment.username}}: </span>
-    {{comment.commentbody}}</p> <span style="visibility: hidden;">{{comment.postid}}</span> -->
     <app-comments></app-comments>
    
   </div>
@@ -77,20 +43,16 @@
 
   
     <p id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">sam24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
->>>>>>> 1e525add4a197c56d9c5e641cff0849b371675eb
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
         quis nostrud exercitation ullamco.</p>
 
-<<<<<<< HEAD
           
   <p id="comment"><span id="userComment" style="font-weight: bold ;color: black;">John24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
     quis nostrud exercitation ullamco.</p>
 </div>
-=======
             
     <p id="comment"><span id="userComment" style="font-weight: bold ;color: black;">John24: </span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, 
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
       quis nostrud exercitation ullamco.</p>
   </div> -->
->>>>>>> 1e525add4a197c56d9c5e641cff0849b371675eb
