@@ -1,0 +1,21 @@
+
+#commentButton{
+width: 15%;
+ margin-left: 85%; 
+ background-color: black; 
+ box-shadow: none;
+ display: block;
+ border-radius: 1px;
+ height: fit-content;
+ margin-top: -9px;
+
+}
+textarea{
+    resize: none;
+    background-color:rgb(130, 160, 178);
+  
+
+}
+#commentButton:hover {
+    background-color:#1D3557;
+  }
