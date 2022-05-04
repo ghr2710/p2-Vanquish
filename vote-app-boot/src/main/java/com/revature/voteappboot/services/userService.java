@@ -2,6 +2,11 @@ package com.revature.voteappboot.services;
 
 import java.util.Date;
 
+import com.revature.voteappboot.classes.User;
+import com.revature.voteappboot.exceptions.IncorrectCredsException;
+import com.revature.voteappboot.exceptions.UserAlreadyExistsException;
+import com.revature.voteappboot.exceptions.UserDoesNotExistException;
+
 import deployed.classes.*;
 import deployed.exceptions.*;
 

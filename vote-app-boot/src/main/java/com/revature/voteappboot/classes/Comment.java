@@ -1,9 +1,13 @@
 package com.revature.voteappboot.classes;
-
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+@Entity
+@Table
 
 public class Comment {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int commentId;
 	private int relatedPost;
 	private String username;

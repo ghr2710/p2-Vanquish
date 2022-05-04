@@ -1,9 +1,12 @@
 package com.revature.voteappboot.classes;
-
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+@Entity
+@Table
 public class Post {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int postId;
 	private String username;
 	private Date datePosted;

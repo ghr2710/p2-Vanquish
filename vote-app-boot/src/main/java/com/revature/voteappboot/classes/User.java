@@ -1,6 +1,12 @@
 package com.revature.voteappboot.classes;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user_info")
 public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String username;
 	private String password;
 	
