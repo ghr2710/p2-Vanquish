@@ -37,9 +37,4 @@ private userService userServ;
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
 		}
 	}
-<<<<<<< HEAD
-
-	
-=======
->>>>>>> 46ae11736512f08e59ac67191c638f63badda4aa
 }
