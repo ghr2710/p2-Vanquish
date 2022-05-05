@@ -11,5 +11,5 @@ import com.revature.voteappboot.classes.Comment;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer> {
-	public User findByUsername(String username);
+	public Post[] getAllPosts();
 }
