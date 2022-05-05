@@ -1,5 +1,6 @@
 package com.revature.voteappboot.services;
 
+import java.util.List;
 import java.util.Date;
 
 
@@ -79,8 +80,8 @@ public class userService {
 		return p;
 	}
 
-	public Post[] getAllPosts(){
-		Post[] postList = postRepo.getAllPosts();
+	public List<Post> getAllPosts(){
+		List<Post> postList = postRepo.findAll();
 		return postList;
 	}
 	
@@ -104,8 +105,8 @@ public class userService {
 		return commentRepo.getById(id);
 	}
 	
-	public Comment[] getComments(int id) {
-		return commentRepo.getByPost(id);
+	public List<Comment> getComments(int id) {
+		return commentRepo.findById(id);
 		
 	}
 }
