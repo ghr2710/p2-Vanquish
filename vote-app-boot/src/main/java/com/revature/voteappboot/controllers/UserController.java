@@ -35,8 +35,6 @@ private userService userServ;
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
 		}
 	}
-@GetMapping(path="/{username}")
-	public ResponseEntity<Boolean> deleteUser (@PathVariable("username") String username){
+
 	
-}
 }
