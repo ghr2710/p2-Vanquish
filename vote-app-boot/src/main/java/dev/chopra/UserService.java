@@ -2,9 +2,26 @@ package dev.chopra;
 
 
 
+import org.springframework.stereotype.Service;
+
+import com.revature.voteappboot.data.PostRepository;
+import com.revature.voteappboot.data.CommentRepository;
+import com.revature.voteappboot.data.UserRepository;
+import com.revature.voteappboot.services.userService;
+
 import dev.khayman.User;
 
+
+@Service
 public class UserService {
+	
+	
+		// field injection
+		//@Autowired
+		private UserRepository userRepo;
+		//@Autowired
+		private PostRepository postRepo;
+		private CommentRepository commentRepo;
 	public User register(String Username, String password) {
 		User u = new User(Username, password);
 		// DAO.createUser(u);

@@ -2,26 +2,33 @@ package com.revature.voteappboot.services;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
 import com.revature.voteappboot.classes.User;
+import com.revature.voteappboot.data.CommentRepository;
+import com.revature.voteappboot.data.PostRepository;
+import com.revature.voteappboot.data.UserRepository;
 import com.revature.voteappboot.exceptions.IncorrectCredsException;
 import com.revature.voteappboot.exceptions.UserAlreadyExistsException;
 import com.revature.voteappboot.exceptions.UserDoesNotExistException;
 
-import deployed.classes.*;
-import deployed.exceptions.*;
 
+@Service
 public class userService {
 	
 	//ADD DAO STUFF HERE
 	
 	public userService() {
 		//DECLARE DAO's HERE
+		private UserRepository userRepo;
+		private PostRepository postRepo;
+		private CommentRepository commentRepo;
 	}
 	
 	public Boolean createAcct(User u) throws UserAlreadyExistsException{
 		Boolean exists = false;
 		try {
-			//exists = DAO.userExists(u.getUsername());
+			User user = userRepo.findByUsername(username);
 		}
 		catch (Exception e) {
 			//User exists query went wrong
