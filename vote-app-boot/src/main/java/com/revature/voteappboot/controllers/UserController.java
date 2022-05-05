@@ -1,3 +1,5 @@
+package com.revature.voteappboot.controllers;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,8 +37,4 @@ private userService userServ;
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
 		}
 	}
-@GetMapping(path="/{username}")
-	public ResponseEntity<Boolean> deleteUser (@PathVariable("username") String username){
-	
-}
 }

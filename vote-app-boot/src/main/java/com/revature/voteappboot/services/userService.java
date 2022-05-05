@@ -2,13 +2,11 @@ package com.revature.voteappboot.services;
 
 import java.util.Date;
 
-<<<<<<< HEAD
+
 import org.springframework.stereotype.Service;
-=======
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
->>>>>>> 62724a98166bb1094bb690b9bacfa59151f881ea
 
 import com.revature.voteappboot.classes.User;
 import com.revature.voteappboot.data.CommentRepository;
@@ -18,16 +16,12 @@ import com.revature.voteappboot.exceptions.IncorrectCredsException;
 import com.revature.voteappboot.exceptions.UserAlreadyExistsException;
 import com.revature.voteappboot.exceptions.UserDoesNotExistException;
 
-<<<<<<< HEAD
-
-=======
 import com.revature.voteappboot.data.UserRepository;
 import com.revature.voteappboot.data.PostRepository;
 import com.revature.voteappboot.data.CommentRepository;
 
 import com.revature.voteappboot.classes.*;
 
->>>>>>> 62724a98166bb1094bb690b9bacfa59151f881ea
 @Service
 public class userService {
 	
@@ -35,24 +29,6 @@ public class userService {
 	private PostRepository postRepo;
 	private CommentRepository commentRepo;
 	
-<<<<<<< HEAD
-	public userService() {
-		//DECLARE DAO's HERE
-		private UserRepository userRepo;
-		private PostRepository postRepo;
-		private CommentRepository commentRepo;
-	}
-	
-	public Boolean createAcct(User u) throws UserAlreadyExistsException{
-		Boolean exists = false;
-		try {
-			User user = userRepo.findByUsername(username);
-		}
-		catch (Exception e) {
-			//User exists query went wrong
-			return false;
-		}
-=======
 	@Autowired
 	public userService(UserRepository userRepo, PostRepository postRepo, CommentRepository commentRepo) {
 		this.userRepo = userRepo;
@@ -62,7 +38,6 @@ public class userService {
 	
 	public User createAcct(User u) throws UserAlreadyExistsException{
 		String uName = userRepo.save(u).getUsername();
->>>>>>> 62724a98166bb1094bb690b9bacfa59151f881ea
 		
 		if(uName != "") {
 			return u;
