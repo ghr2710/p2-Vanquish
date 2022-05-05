@@ -1,3 +1,5 @@
+package com.revature.voteappboot.controllers;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +37,9 @@ private userService userServ;
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
 		}
 	}
+<<<<<<< HEAD
 
 	
+=======
+>>>>>>> 46ae11736512f08e59ac67191c638f63badda4aa
 }
