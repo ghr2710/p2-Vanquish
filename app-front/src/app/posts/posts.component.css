@@ -10,6 +10,22 @@ width: 15%;
  margin-top: -9px;
 
 }
+
+#commentToggle{
+  width: 15%;
+   margin-bottom: 10px; 
+   cursor: pointer;
+   float: right;
+   background-color: rgb(24, 22, 45); 
+   box-shadow: none;
+  display: block; 
+   border-radius: 0px 0px 5px 5px;
+   height: fit-content;
+   margin-top: -9px;
+   font-size: 15px;
+  }
+
+
 textarea{
     resize: none;
     background-color:rgb(130, 160, 178);

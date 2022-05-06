@@ -10,7 +10,8 @@ export class PostsComponent implements OnInit {
 // @ViewChild('postID') postID: ElementRef;
 // @ViewChild('postIDcomment') postIDcomment: ElementRef;
 
-
+showComment = "none";  //inherit
+showLabel = "read comments🔻";
  comments: any;
  posts: any;
  countVote = 0;
@@ -42,5 +43,20 @@ export class PostsComponent implements OnInit {
  
    }
   
+toggleView(){
+  let m = "none";
+  let s = "read comments🔻";
+  let z = "hide comments🔺";
+  if (this.showComment == m){
+    this.showComment="inherit"
+     m="inherit";
+     this.showLabel=z;
+  } else if (this.showComment != m) {
+    this.showComment="none"
+      m="none";
+      this.showLabel=s;
+  }
+
+}
 
 }

@@ -15,19 +15,18 @@ import com.revature.voteappboot.classes.User;
 import com.revature.voteappboot.exceptions.UserAlreadyExistsException;
 import com.revature.voteappboot.services.userService;
 
-
-
 @RestController
-@RequestMapping(path="/users")
-@CrossOrigin(origins="http://localhost:4200")
+@RequestMapping(path = "/users")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
-private userService userServ;
-	
+	private userService userServ;
+
 	@Autowired
 	public UserController(userService userServ) {
 		this.userServ = userServ;
-		
+
 	}
+
 	@PostMapping
 	public ResponseEntity<User> createAcct(@RequestBody User u) {
 		try {
