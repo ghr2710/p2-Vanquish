@@ -4,5 +4,5 @@ JSON Body
 {
     "username": "test",
     "commentBody": "test",
-    "postid" : 0
+    "relatedPost" : 2
 }

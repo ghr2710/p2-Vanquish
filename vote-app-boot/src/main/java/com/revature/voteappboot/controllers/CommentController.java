@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.voteappboot.classes.Comment;
+import com.revature.voteappboot.classes.Post;
 import com.revature.voteappboot.services.userService;
 
 @RestController
@@ -29,6 +30,7 @@ private userService userServ;
 	
 	@PostMapping
 	public ResponseEntity<Comment> createComment(@RequestBody Comment c){
+		System.out.println(c.getRelatedPost());
 		 c = userServ.createComment(c);
 		 
 		if (c != null) {
@@ -37,18 +39,16 @@ private userService userServ;
 			return ResponseEntity.notFound().build();
 		}
 	}
-	@GetMapping(path="/{CommentId}")
-	public ResponseEntity<Comment> getcomment(@PathVariable int commentId) {
-		Comment c = userServ.getComment(commentId);
-		if (c != null) {
-			return ResponseEntity.ok(c);
-		} else {
-			return ResponseEntity.notFound().build();
-		}
+	
+	@GetMapping(path="/{id}")
+	public ResponseEntity<Comment> getComment(@PathVariable int id) {
+		Comment c = userServ.getComment(id);
+		return ResponseEntity.ok(c);
 	}
-	@GetMapping(path="/{postId}")
-	public ResponseEntity<List<Comment>> getComments(int postId) {
-		List<Comment> c = userServ.getComments(postId);
+	
+	@GetMapping(path="/post/{id}")
+	public ResponseEntity<List<Comment>> getComments(@PathVariable int id) {
+		List<Comment> c = userServ.getComments(id);
 		return ResponseEntity.ok(c);
 	}
 }

@@ -22,43 +22,38 @@ import com.revature.voteappboot.services.userService;
 @CrossOrigin(origins="http://localhost:4200")
 
 public class PostController {
-private userService userServ;
+	private userService userServ;
 
-@Autowired
-public PostController(userService userServ) {
-	this.userServ = userServ;
-}
-
-@PostMapping 
-//create post 
-public ResponseEntity<Post> createPost(@RequestBody Post p) {
-	p = userServ.createPost(p);	
-	
-	if (p != null) {
-		return ResponseEntity.ok(p);
-	} else {
-		return ResponseEntity.notFound().build();
+	@Autowired
+	public PostController(userService userServ) {
+		this.userServ = userServ;
 	}
-}
 
-//get all posts 
-@GetMapping
-public ResponseEntity<List<Post>> getPost() {
-	List<Post> p = userServ.getAllPosts();
-	return ResponseEntity.ok(p);
-}
+	@PostMapping 
+	//create post 
+	public ResponseEntity<Post> createPost(@RequestBody Post p) {
+		p = userServ.createPost(p);	
+	
+		if (p != null) {
+			return ResponseEntity.ok(p);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+	//get all posts 
+	@GetMapping
+	public ResponseEntity<List<Post>> getPosts() {
+		List<Post> p = userServ.getAllPosts();
+		return ResponseEntity.ok(p);
+	}
 
 
-//get posts by user id
-@GetMapping(path="/{userid}")
-public ResponseEntity<Post> getPosts(int id) {
-	Post p = userServ.getPost(id);
-	return ResponseEntity.ok(p);
-}
-	
-
-	
-	
-	
+	//get posts by post ID
+	@GetMapping(path="/{id}")
+	public ResponseEntity<Post> getPosts(@PathVariable int id) {
+		Post p = userServ.getPost(id);
+		return ResponseEntity.ok(p);
+	}
 	
 }

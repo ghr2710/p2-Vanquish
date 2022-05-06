@@ -49,8 +49,7 @@ public class userService {
 	}
 	
 	public User logIn(String username, String password) throws IncorrectCredsException{
-		User u = new User();
-		u = userRepo.findByUsername(username);
+		User u = userRepo.findByUsername(username);
 		if (u != null && u.getPassword().equals(password)) {
 			return u;
 		} else {
@@ -71,7 +70,7 @@ public class userService {
 	}
 	
 	public Post getPost(int id) {
-		Post p = postRepo.getById(id);
+		Post p = postRepo.findById(id);
 		return p;
 	}
 
@@ -92,11 +91,10 @@ public class userService {
 	} 
 	
 	public Comment getComment(int id) {
-		return commentRepo.getById(id);
+		return commentRepo.findById(id);
 	}
 	
 	public List<Comment> getComments(int postId) {
-		return commentRepo.findById(postId);
-		
+		return commentRepo.findByPostid(postId);	
 	}
 }
