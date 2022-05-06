@@ -31,8 +31,8 @@ public PostController(userService userServ) {
 
 @PostMapping 
 //create post 
-public ResponseEntity<Post> createPost(@RequestBody String postBody, String option1, String option2) {
-	Post p = userServ.createPost(postBody, option1, option2);	
+public ResponseEntity<Post> createPost(@RequestBody Post p) {
+	p = userServ.createPost(p);	
 	
 	if (p != null) {
 		return ResponseEntity.ok(p);

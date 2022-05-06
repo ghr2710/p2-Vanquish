@@ -49,6 +49,7 @@ public class userService {
 		}
 
 	}
+<<<<<<< HEAD
 
 	public Post createPost(String postBody, String option1, String option2) {
 		Post p = new Post();
@@ -56,6 +57,10 @@ public class userService {
 		p.setOption1(option1);
 		p.setOption2(option2);
 
+=======
+	
+	public Post createPost(Post p) {
+>>>>>>> a6e9f4278bdbb3f7e3b59c56ccce9ea4fcf11c1d
 		int id = postRepo.save(p).getPostId();
 
 		if(id != 0) {

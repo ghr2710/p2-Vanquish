@@ -1,46 +1,44 @@
 package com.revature.voteappboot.classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
 public class Vote {
 
+	@Id
 	private String username;
 	private int postId;
 	
-	
-	
-public Vote() {
-	username = "";
-	postId = 0;
-}
+	public Vote() {
+		username = "";
+		postId = 0;
+	}
 
 
 
-public String getUsername() {
-	return username;
-}
+	public String getUsername() {
+		return username;
+	}
 
-public void setUsername(String username) {
-	this.username = username;
-}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-public int getPostId() {
-	return postId;
-}
+	public int getPostId() {
+		return postId;
+	}
 
-public void setPostId(int postId) {
-	this.postId = postId;
-}
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
 
 
 
-@Override
-public String toString() {
-	return "Votes [username=" + username + ", postId=" + postId + "]";
-}
+	@Override
+	public String toString() {
+		return "Votes [username=" + username + ", postId=" + postId + "]";
+	}
 
 
 }

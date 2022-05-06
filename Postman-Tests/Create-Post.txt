@@ -1,0 +1,9 @@
+POST to http://localhost:8080/post
+
+JSON Body
+{
+    "username": "test",
+    "postBody": "test",
+    "option1" : "opt 1",
+    "option2" : "opt 2"
+}
