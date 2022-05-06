@@ -7,49 +7,52 @@ import java.util.Date;
 
 public class Comment {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int commentId;
-	private int relatedPost;
+	private int commentid;
+	@Column
+	private int postid;
+	@Column
 	private String username;
-	private String commentBody;
+	@Column
+	private String commentbody;
+	@Column
 	private Date datePosted;
 	
 	
 	public Comment() {
-		commentId = 0;
-		relatedPost = 0;
+		commentid = 0;
+		postid = 0;
 		username = "";
-		commentBody = "";
+		commentbody = "";
 		datePosted = new Date();
 		
 	}
 
 	public Comment(int id, int rel, String username, String body, Date day) {
-		commentId = id;
-		relatedPost = rel;
+		commentid = id;
+		postid = rel;
 		this.username = username;
-		commentBody = body;
+		commentbody = body;
 		datePosted = day;
 		
 	}
 	
 	public int getCommentId() {
-		return commentId;
+		return commentid;
 	}
 	public void setCommentId(int commentId) {
-		this.commentId = commentId;
+		this.commentid = commentId;
 	}
 	public int getRelatedPost() {
-		return relatedPost;
+		return postid;
 	}
 	public void setRelatedPost(int relatedPost) {
-		this.relatedPost = relatedPost;
+		this.postid = relatedPost;
 	}
 	public String getCommentBody() {
-		return commentBody;
+		return commentbody;
 	}
 	public void setCommentBody(String commentBody) {
-		this.commentBody = commentBody;
+		this.commentbody = commentBody;
 	}
 	public Date getDatePosted() {
 		return datePosted;

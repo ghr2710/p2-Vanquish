@@ -3,6 +3,7 @@ package com.revature.voteappboot.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +26,10 @@ private userService userServ;
 	public CommentController(userService userServ) {
 		this.userServ = userServ;
 }
+	
 	@PostMapping
-	public ResponseEntity<Comment> createComment(@RequestBody String username, String Body, int rel ){
-		 Comment c = userServ.createComment(username, Body, rel);
+	public ResponseEntity<Comment> createComment(@RequestBody Comment c){
+		 c = userServ.createComment(c);
 		 
 		if (c != null) {
 			return ResponseEntity.ok(c);
@@ -44,9 +46,9 @@ private userService userServ;
 			return ResponseEntity.notFound().build();
 		}
 	}
-	@GetMapping(path="/{commentsid}")
-	public ResponseEntity<List<Comment>> getComments(int id) {
-		List<Comment> c = userServ.getComments(id);
+	@GetMapping(path="/{postId}")
+	public ResponseEntity<List<Comment>> getComments(int postId) {
+		List<Comment> c = userServ.getComments(postId);
 		return ResponseEntity.ok(c);
 	}
 }

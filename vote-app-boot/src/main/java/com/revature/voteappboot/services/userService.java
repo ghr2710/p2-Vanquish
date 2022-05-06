@@ -85,12 +85,7 @@ public class userService {
 		return postList;
 	}
 	
-	public Comment createComment(String username, String Body, int rel) {
-		Comment c = new Comment();
-		c.setCommentBody(Body);
-		c.setUsername(username);
-		c.setRelatedPost(rel);
-
+	public Comment createComment(Comment c) {
 		int id = commentRepo.save(c).getCommentId();
 		
 		if(id != 0) {
@@ -105,8 +100,8 @@ public class userService {
 		return commentRepo.getById(id);
 	}
 	
-	public List<Comment> getComments(int id) {
-		return commentRepo.findById(id);
+	public List<Comment> getComments(int postId) {
+		return commentRepo.findById(postId);
 		
 	}
 }
