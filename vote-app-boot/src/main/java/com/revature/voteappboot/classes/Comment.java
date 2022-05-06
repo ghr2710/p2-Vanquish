@@ -7,6 +7,7 @@ import java.util.Date;
 
 public class Comment {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int commentid;
 	@Column
 	private int postid;

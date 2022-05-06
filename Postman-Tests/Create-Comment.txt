@@ -1,0 +1,8 @@
+POST to http://localhost:8080/comment
+
+JSON Body
+{
+    "username": "test",
+    "commentBody": "test",
+    "postid" : 0
+}

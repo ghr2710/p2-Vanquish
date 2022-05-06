@@ -59,12 +59,7 @@ public class userService {
 
 	}
 	
-	public Post createPost(String postBody, String option1, String option2) {
-		Post p = new Post();
-		p.setPostBody(postBody);
-		p.setOption1(option1);
-		p.setOption2(option2);
-		
+	public Post createPost(Post p) {
 		int id = postRepo.save(p).getPostId();
 		
 		if(id != 0) {

@@ -6,48 +6,48 @@ import java.util.Date;
 @Table
 public class Post {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int postId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int postid;
 	private String username;
 	private Date datePosted;
-	private String postBody;
-	private String option1;
-	private String option2;
-	private int numberOfVotesOption1;
-	private int numberOfVotesOption2;
+	private String postbody;
+	private String option1name;
+	private String option2name;
+	private int option1vote;
+	private int option2vote;
 	private int totalVotes;
 	
 	public Post() {
-		postId = 0;
+		postid = 0;
 		username = "";
 		datePosted = new Date();
-		postBody = "";
-		option1 = "";
-		option2 = "";
-		numberOfVotesOption1 = 0;
-		numberOfVotesOption2 = 0;
+		postbody = "";
+		option1name = "";
+		option2name = "";
+		option1vote = 0;
+		option2vote = 0;
 		totalVotes = 0;
 	}
 	
 	public Post(int id, String username, Date day, String body, String op1, String op2, int numVotes1, int numVotes2, int total) {
-		postId = id;
+		postid = id;
 		this.username = username;
 		datePosted = day;
-		postBody = body;
-		option1 = op1;
-		option2 = op2;
-		numberOfVotesOption1 = numVotes1;
-		numberOfVotesOption2 = numVotes2;
+		postbody = body;
+		option1name = op1;
+		option2name = op2;
+		option1vote = numVotes1;
+		option2vote = numVotes2;
 		totalVotes = total;
 		
 	}
 	
 	
 	public int getPostId() {
-		return postId;
+		return postid;
 	}
 	public void setPostId(int postId) {
-		this.postId = postId;
+		this.postid = postId;
 	}
 	public String getUsername() {
 		return username;
@@ -62,34 +62,34 @@ public class Post {
 		this.datePosted = datePosted;
 	}
 	public String getPostBody() {
-		return postBody;
+		return postbody;
 	}
 	public void setPostBody(String postBody) {
-		this.postBody = postBody;
+		this.postbody = postBody;
 	}
 	public String getOption1() {
-		return option1;
+		return option1name;
 	}
 	public void setOption1(String option1) {
-		this.option1 = option1;
+		this.option1name = option1;
 	}
 	public String getOption2() {
-		return option2;
+		return option2name;
 	}
 	public void setOption2(String option2) {
-		this.option2 = option2;
+		this.option2name = option2;
 	}
 	public int getNumberOfVotesOption1() {
-		return numberOfVotesOption1;
+		return option1vote;
 	}
 	public void setNumberOfVotesOption1(int numberOfVotesOption1) {
-		this.numberOfVotesOption1 = numberOfVotesOption1;
+		this.option1vote = numberOfVotesOption1;
 	}
 	public int getNumberOfVotesOption2() {
-		return numberOfVotesOption2;
+		return option2vote;
 	}
 	public void setNumberOfVotesOption2(int numberOfVotesOption2) {
-		this.numberOfVotesOption2 = numberOfVotesOption2;
+		this.option2vote = numberOfVotesOption2;
 	}
 	public int getTotalVotes() {
 		return totalVotes;

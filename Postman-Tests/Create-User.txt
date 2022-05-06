@@ -1,0 +1,7 @@
+POST to http://localhost:8080/users
+
+JSON Body
+{
+    "username": "test",
+    "password": "test"
+}
