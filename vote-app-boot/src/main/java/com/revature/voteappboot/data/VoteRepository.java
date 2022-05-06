@@ -7,6 +7,5 @@ import com.revature.voteappboot.classes.Vote;
 
 @Repository
 public interface VoteRepository extends JpaRepository<Vote, Integer> {
-	public Vote findByUsername(String username);
-
+	public Vote findByUsernameAndPostid(String username, int postid);
 }

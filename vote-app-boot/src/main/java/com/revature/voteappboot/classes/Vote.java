@@ -3,19 +3,27 @@ package com.revature.voteappboot.classes;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "votes")
 public class Vote {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int voteid;
 	private String username;
-	private int postId;
+	private int postid;
 	
 	public Vote() {
 		username = "";
-		postId = 0;
+		postid = 0;
 	}
 
+	public int getVoteId() {
+		return voteid;
+	}
 
+	public void setVoteId(int id) {
+		this.voteid = id;
+	}
 
 	public String getUsername() {
 		return username;
@@ -26,18 +34,16 @@ public class Vote {
 	}
 
 	public int getPostId() {
-		return postId;
+		return postid;
 	}
 
 	public void setPostId(int postId) {
-		this.postId = postId;
+		this.postid = postId;
 	}
-
-
 
 	@Override
 	public String toString() {
-		return "Votes [username=" + username + ", postId=" + postId + "]";
+		return "Votes [username=" + username + ", postId=" + postid + "]";
 	}
 
 

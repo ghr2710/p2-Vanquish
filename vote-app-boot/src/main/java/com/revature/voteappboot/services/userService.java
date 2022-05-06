@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import com.revature.voteappboot.classes.Comment;
 import com.revature.voteappboot.classes.Post;
 import com.revature.voteappboot.classes.User;
+import com.revature.voteappboot.classes.Vote;
 import com.revature.voteappboot.data.CommentRepository;
 import com.revature.voteappboot.data.PostRepository;
 import com.revature.voteappboot.data.UserRepository;
+import com.revature.voteappboot.data.VoteRepository;
 import com.revature.voteappboot.exceptions.IncorrectCredsException;
 import com.revature.voteappboot.exceptions.UserAlreadyExistsException;
 
@@ -19,19 +21,22 @@ public class userService {
 
 	private UserRepository userRepo;
 	private PostRepository postRepo;
+	private VoteRepository voteRepo;
 	private CommentRepository commentRepo;
 
 	@Autowired
-	public userService(UserRepository userRepo, PostRepository postRepo, CommentRepository commentRepo) {
+	public userService(UserRepository userRepo, PostRepository postRepo, CommentRepository commentRepo, VoteRepository voteRepo) {
 		this.userRepo = userRepo;
 		this.postRepo = postRepo;
+		this.voteRepo = voteRepo;
 		this.commentRepo = commentRepo;
 	}
 
 	public User createAcct(User u) throws UserAlreadyExistsException{
-		String uName = userRepo.save(u).getUsername();
+		User search = userRepo.findByUsername(u.getUsername());
 
-		if(uName != "") {
+		if(search == null) {
+			String uName = userRepo.save(u).getUsername();
 			return u;
 		}
 		else {
@@ -87,6 +92,21 @@ public class userService {
 
 	public List<Comment> getComments(int postId) {
 		return commentRepo.findByPostid(postId);
+	}
+	
+	public Vote addVote(Vote v) throws Exception {
+		Vote search = voteRepo.findByUsernameAndPostid(v.getUsername(), v.getPostId());
+		System.out.println(search);
+		
+		if(search == null) {
+			System.out.println("HERE");
+			String uName = voteRepo.save(v).getUsername();
+			return v;
+		}
+		else {
+			throw new Exception();
+		}
+
 	}
 
 }
