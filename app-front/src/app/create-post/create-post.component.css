@@ -1,0 +1,13 @@
+textarea{
+    resize: none;
+    
+}
+h3{
+   text-align: center;
+}
+#vs{
+
+   margin-left: 2%; 
+   font-family: 'Oleo Script Swash Caps', cursive;
+   font-size: 23px;
+}

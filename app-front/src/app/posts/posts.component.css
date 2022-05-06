@@ -5,7 +5,7 @@ width: 15%;
  background-color: black; 
  box-shadow: none;
  display: block;
- border-radius: 1px;
+ border-radius: 0px 0px 15px 15px;
  height: fit-content;
  margin-top: -9px;
 
@@ -19,3 +19,25 @@ textarea{
 #commentButton:hover {
     background-color:#1D3557;
   }
+
+
+#thumbs_up:hover {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+filter: brightness(300%);
+  }
+
+  #thumbs_up2:hover {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    filter: brightness(300%);
+      }
+
+      #vs{
+
+
+        font-family: 'Oleo Script Swash Caps', cursive;
+        font-size: 23px;
+     }

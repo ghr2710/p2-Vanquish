@@ -1,15 +1,15 @@
 
 <div   class="card"  >
-    <h3>create post</h3>
+    <h3>Create a Poll</h3>
   <form >
 
       <input type="text" id="option1name" name="option1name" placeholder="Option 1" style="width: 47%; display: inline;">
       
-      <label style="margin-left: 2%;">VS</label>
+      <label id="vs" >Vs</label>
   
       <input type="password" id="option2name" name="option2name" placeholder="Option 2" style="width: 47%; display: inline; float: right;">
 
-      <textarea id="postbody" name="postbody" rows="4" cols="50"  placeholder="what is on your mind?"></textarea>
+      <textarea id="postbody" name="postbody" rows="4" cols="50"  placeholder="Your Thoughts on the Options..."  maxlength="200"></textarea>
   
       <input type="submit" style="width: 20%; margin-left: 80%; "  value="Post">
   </form>
