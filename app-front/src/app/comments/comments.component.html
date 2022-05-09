@@ -1,6 +1,8 @@
 <div *ngFor="let comment of comments">
 
-<p  id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">{{comment.username}}: </span>
-    {{comment.commentbody}}</p>
+    <p  id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">{{comment.username}}: </span>
+        {{comment.commentBody}} <span style="float: right; font-size: 12px;"> {{comment.stringDate | date:'mediumDate'}}</span>  </p>
+     
+    
   
 </div>

@@ -19,6 +19,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
   imports: [
     BrowserModule,
     FormsModule
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

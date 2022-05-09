@@ -7,29 +7,51 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-// @ViewChild('postID') postID: ElementRef;
-// @ViewChild('postIDcomment') postIDcomment: ElementRef;
 
-showComment = "none";  //inherit
+
+showComment = true; 
 showLabel = "read comments🔻";
  comments: any;
  posts: any;
  countVote = 0;
  countVote2= 0;
+  postID: any;
+
+
   constructor() { }
 
   ngOnInit(): void {
    
     this.getPosts();
-   
+    //this.getComments();
   }
 
   async getPosts() {
-    let resp = await fetch('https://mocki.io/v1/87493bff-3f23-4395-9cfb-8873f5465d80'); //posts end point
+    let resp = await fetch('http://localhost:8080/post'); //posts end point
     if (resp.status===200) {
       this.posts = await resp.json();
+     
     }
   }
+
+  async getComments() {
+    
+    let resp = await fetch('http://localhost:8080/comment/post/' + this.postID);
+    if (resp.status===200) {
+      this.comments = await resp.json();
+    }
+  }
+
+displayComment(){
+ let m = document.getElementById("postID").textContent;
+ this.postID =m; 
+
+ this.getComments();
+
+
+} 
+
+
 
  
 //this is for the green
@@ -47,13 +69,11 @@ toggleView(){
   let m = "none";
   let s = "read comments🔻";
   let z = "hide comments🔺";
-  if (this.showComment == m){
-    this.showComment="inherit"
-     m="inherit";
+  if (this.showComment == true){
+     this.showComment=false;
      this.showLabel=z;
-  } else if (this.showComment != m) {
-    this.showComment="none"
-      m="none";
+  } else if (this.showComment == false) {
+    this.showComment=true;
       this.showLabel=s;
   }
 
