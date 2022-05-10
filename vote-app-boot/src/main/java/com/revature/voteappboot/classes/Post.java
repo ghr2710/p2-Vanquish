@@ -19,7 +19,7 @@ public class Post {
 	private int option2vote;
 	private int totalVotes;
 	@OneToMany
-	@JoinColumn(name="post_id")
+	@JoinColumn(name="postid")
 	private List<Comment> comments;
 	
 	public Post() {
@@ -32,7 +32,7 @@ public class Post {
 		option1vote = 0;
 		option2vote = 0;
 		totalVotes = 0;
-		//comments = new ArrayList<>();
+		comments = new ArrayList<>();
 	}
 	
 	public Post(int id, String username, Date day, String body, String op1, String op2, int numVotes1, int numVotes2, int total) {
@@ -103,12 +103,12 @@ public class Post {
 	public void setTotalVotes(int totalVotes) {
 		this.totalVotes = totalVotes;
 	}
-	/*public List<Comment> getComments() {
+	public List<Comment> getComments() {
 		return comments;
 	}
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
-	}*/
+	}
 	
 
 	public java.sql.Date sqlDate() {

@@ -15,38 +15,42 @@ showLabel = "read comments🔻";
  posts: any;
  countVote = 0;
  countVote2= 0;
-  postID: any;
-
+  postID='10';
+ 
 
   constructor() { }
 
   ngOnInit(): void {
    
     this.getPosts();
-    //this.getComments();
+  
   }
 
   async getPosts() {
     let resp = await fetch('http://localhost:8080/post'); //posts end point
     if (resp.status===200) {
       this.posts = await resp.json();
+
+      this.posts = this.posts.sort((a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime());
      
     }
   }
 
-  async getComments() {
+  async getComments(id: string) {
     
-    let resp = await fetch('http://localhost:8080/comment/post/' + this.postID);
+    let resp = await fetch('http://localhost:8080/comment/post/' + id);
     if (resp.status===200) {
       this.comments = await resp.json();
     }
   }
 
+
+
 displayComment(){
  let m = document.getElementById("postID").textContent;
  this.postID =m; 
 
- this.getComments();
+ this.getComments(m);
 
 
 } 
