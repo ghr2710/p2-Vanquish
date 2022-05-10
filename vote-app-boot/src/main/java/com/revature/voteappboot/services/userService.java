@@ -15,6 +15,7 @@ import com.revature.voteappboot.data.UserRepository;
 import com.revature.voteappboot.data.VoteRepository;
 import com.revature.voteappboot.exceptions.IncorrectCredsException;
 import com.revature.voteappboot.exceptions.UserAlreadyExistsException;
+import com.revature.voteappboot.exceptions.VoteAlreadyExistsException;
 
 @Service
 public class userService {
@@ -94,7 +95,7 @@ public class userService {
 		return commentRepo.findByPostid(postId);
 	}
 	
-	public Vote addVote(Vote v) throws Exception {
+	public Vote addVote(Vote v) throws VoteAlreadyExistsException {
 		Vote search = voteRepo.findByUsernameAndPostid(v.getUsername(), v.getPostId());
 		
 		if(search == null) {
@@ -102,7 +103,7 @@ public class userService {
 			return v;
 		}
 		else {
-			throw new Exception();
+			throw new VoteAlreadyExistsException();
 		}
 
 	}
