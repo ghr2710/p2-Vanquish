@@ -27,7 +27,7 @@ export class CreatePostComponent implements OnInit {
   */
 
   async createPost() {
-    let username = "test";//sessionStorage.getItem('Auth-Token');
+    let username = sessionStorage.getItem('Auth-Token');
     let credentials = {
       username:username,
       postBody:(<HTMLInputElement>document.getElementById('postbody')).value,
@@ -41,6 +41,7 @@ export class CreatePostComponent implements OnInit {
     if (resp.status===200) {
       this.post = await resp.json();
     }
+    location.reload;
   }
 
 }
