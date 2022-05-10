@@ -72,8 +72,8 @@ displayComment(){
   
 toggleView(){
   let m = "none";
-  let s = "read comments🔻";
-  let z = "hide comments🔺";
+  let z = "read comments🔻";
+  let s = "hide comments🔺";
   if (this.showComment == true){
      this.showComment=false;
      this.showLabel=z;
