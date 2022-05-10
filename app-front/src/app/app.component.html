@@ -14,7 +14,7 @@
 
    </div>
    <div class="rightcolumn">
-     <div class="card" *ngIf="!loginStatus">
+     <div class="login-card" *ngIf="!loginStatus">
        <h2>Log In</h2>
        <div class="login-body" style="height:100px;">
          <form >
@@ -43,7 +43,7 @@
      
      </div>
 
-     <div class="card" *ngIf="loginStatus">
+     <div class="logout-card" *ngIf="loginStatus">
       <h2>Log Out</h2>
       <div class="logout-body" style="height:100px;">
         <form >
