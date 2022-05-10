@@ -25,20 +25,24 @@
       <br>
     
           <!-- comments  -->
+       <div id="commentToggle" (click)="toggleView()"> {{showLabel}}</div> 
+        
+       <div *ngIf="showComment">
 
        <div *ngFor="let comment of element.comments">
 
         <p  id="comment"> <span id="userComment" style="font-weight: bold ;color: black;">{{comment.username}}: </span>
             {{comment.commentBody}} <span style="float: right; font-size: 12px;"> {{comment.stringDate | date:'mediumDate'}}</span>  </p>
           </div>
-        
+
+        </div>
 
     </div>
 
+    </div>
     
-    
-    <p id="commentToggle" (click)="displayComment()"> {{showLabel}}</p> 
- </div>
+  
+ <!-- </div> -->
  <br>
 
 

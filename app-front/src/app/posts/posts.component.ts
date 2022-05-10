@@ -9,8 +9,9 @@ export class PostsComponent implements OnInit {
 
 
 
-showComment = true; 
+showComment = false; 
 showLabel = "read comments🔻";
+viewComment = "none";
  comments: any;
  posts: any;
  countVote = 0;
@@ -76,9 +77,11 @@ toggleView(){
   if (this.showComment == true){
      this.showComment=false;
      this.showLabel=z;
+    
   } else if (this.showComment == false) {
     this.showComment=true;
       this.showLabel=s;
+   
   }
 
 }
