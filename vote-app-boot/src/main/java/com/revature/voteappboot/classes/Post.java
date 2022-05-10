@@ -2,6 +2,7 @@ package com.revature.voteappboot.classes;
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 @Entity
 @Table
 public class Post {
@@ -16,6 +17,9 @@ public class Post {
 	private int option1vote;
 	private int option2vote;
 	private int totalVotes;
+	@OneToMany
+	@JoinColumn(name="post_id")
+	List<Comment> comments;
 	
 	public Post() {
 		postid = 0;
