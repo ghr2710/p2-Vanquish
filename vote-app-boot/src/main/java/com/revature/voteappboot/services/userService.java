@@ -96,10 +96,8 @@ public class userService {
 	
 	public Vote addVote(Vote v) throws Exception {
 		Vote search = voteRepo.findByUsernameAndPostid(v.getUsername(), v.getPostId());
-		System.out.println(search);
 		
 		if(search == null) {
-			System.out.println("HERE");
 			String uName = voteRepo.save(v).getUsername();
 			return v;
 		}
