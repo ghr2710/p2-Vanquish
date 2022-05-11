@@ -100,6 +100,7 @@ EXAMPLE JSON
     "totalVotes": 30,
     "datePosted": "day"
 }
+
 EXAMPLE JSON 2
 {
     "username": "test",
