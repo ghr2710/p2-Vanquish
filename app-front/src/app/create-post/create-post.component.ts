@@ -41,7 +41,7 @@ export class CreatePostComponent implements OnInit {
     if (resp.status===200) {
       this.post = await resp.json();
     }
-    location.reload;
+    location.replace('http://localhost:4200');
   }
 
 }

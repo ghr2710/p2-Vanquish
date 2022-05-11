@@ -25,7 +25,7 @@ public class LogInStep {
 	
 	@BeforeAll
 	public static void setUp() {
-		File file = new File("src/test/resources/chromedriver.exe");
+		File file = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		
 		driver = new ChromeDriver();
