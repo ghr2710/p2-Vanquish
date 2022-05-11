@@ -34,7 +34,7 @@ viewComment = "none";
     if (resp.status===200) {
       this.posts = await resp.json();
 
-      this.posts = this.posts.sort((a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime());
+      this.posts = this.posts.sort((a, b) => new Date(b.datePosted).getTime() - new Date(a.datePosted).getTime());
      
     }
   }
@@ -44,6 +44,8 @@ viewComment = "none";
     let resp = await fetch('http://localhost:8080/comment/post/' + id);
     if (resp.status===200) {
       this.comments = await resp.json();
+      
+   //   this.comments = this.comments.sort((a, b) => new Date(b.datePosted).getTime() - new Date(a.datePosted).getTime());
     }
   }
 
