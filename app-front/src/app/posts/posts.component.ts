@@ -8,6 +8,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class PostsComponent implements OnInit {
 
 
+  headers = {'Content-type':'application/json'};
+
 
 showComment = false; 
 showLabel = "read comments🔻";
@@ -56,6 +58,31 @@ displayComment(){
 
 } 
 
+/*
+EXAMPLE JSON
+{
+    "username": "test",
+    "commentBody": "test",
+    "relatedPost" : 2
+}
+*/
+
+async createComment(id: string){
+  let username = sessionStorage.getItem('Auth-Token');
+  let credentials = {
+    username: username,
+    commentBody: (<HTMLInputElement>document.getElementById('commentBody')).value,
+    relatedPost:id
+  };
+  let credentialJSON = JSON.stringify(credentials);
+
+  let resp = await fetch('http://localhost:8080/comment',
+    {method:'POST', body:credentialJSON, headers:this.headers});
+    if (resp.status===200) {
+      let comment = await resp.json();
+    }
+    location.replace('http://localhost:4200');
+}
 
 
  
