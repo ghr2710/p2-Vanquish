@@ -87,17 +87,113 @@ async createComment(id: string){
 }
 
 
- 
+/*
+EXAMPLE JSON
+{
+    "postId" : 25,
+    "username": "test",
+    "postBody": "test",
+    "option1" : "opt 1",
+    "option2" : "opt 2",
+    "numberOfVotesOption1": 10,
+    "numberOfVotesOption2": 20,
+    "totalVotes": 30,
+    "datePosted": "day"
+}
+EXAMPLE JSON 2
+{
+    "username": "test",
+    "postId": 23
+}
+*/
 //this is for the green
-    voteCount(){
-   this.countVote +=1;
+  async voteCount(element: any){
+    let num = element.numberOfVotesOption1;
+    num = num+1;
+    
+    let tot = element.numberOfVotesOption2;
+    tot = tot + num;
 
+    let username = sessionStorage.getItem('Auth-Token');
+    
+    let credentials = {
+      postId: element.postId,
+      username: element.username,
+      postBody: element.postBody,
+      option1: element.option1,
+      option2: element.option2,
+      numberOfVotesOption1: num,
+      numberOfVotesOption2: element.numberOfVotesOption2,
+      totalVotes: tot,
+      datePosted: element.datePosted
+    };
+    let credentialJSON = JSON.stringify(credentials);
+
+    let credentials2 = {
+      username: username,
+      postId: element.postId
+    };
+    let credentialJSON2 = JSON.stringify(credentials2);
+
+    let resp = await fetch('http://localhost:8080/vote',
+    {method:'POST', body:credentialJSON2, headers:this.headers});
+    if (resp.status===200) {
+      let vote = await resp.json();
+      let resp2 = await fetch('http://localhost:8080/post',
+      {method:'POST', body:credentialJSON, headers:this.headers});
+      if (resp2.status===200){
+        let post = await resp2.json();
+      }
+    }
+    else{
+      alert("You have already voted on this post");
+    }
+    location.replace('http://localhost:4200');
   }
   //this is for the yellow
-   voteCount2(){
-    this.countVote2 +=1;
- 
-   }
+  async voteCount2(element: any){
+    let num = element.numberOfVotesOption2;
+    num = num+1;
+    
+    let tot = element.numberOfVotesOption1;
+    tot = tot + num;
+
+    let username = sessionStorage.getItem('Auth-Token');
+    
+    let credentials = {
+      postId: element.postId,
+      username: element.username,
+      postBody: element.postBody,
+      option1: element.option1,
+      option2: element.option2,
+      numberOfVotesOption1: element.numberOfVotesOption1,
+      numberOfVotesOption2: num,
+      totalVotes: tot,
+      datePosted: element.datePosted
+    };
+    let credentialJSON = JSON.stringify(credentials);
+
+    let credentials2 = {
+      username: username,
+      postId: element.postId
+    };
+    let credentialJSON2 = JSON.stringify(credentials2);
+
+    let resp = await fetch('http://localhost:8080/vote',
+    {method:'POST', body:credentialJSON2, headers:this.headers});
+    if (resp.status===200) {
+      let vote = await resp.json();
+      let resp2 = await fetch('http://localhost:8080/post',
+      {method:'POST', body:credentialJSON, headers:this.headers});
+      if (resp2.status===200){
+        let post = await resp2.json();
+      }
+    }
+    else{
+      alert("You have already voted on this post");
+    }
+    location.replace('http://localhost:4200');
+  }
   
 toggleView(){
   let m = "none";
