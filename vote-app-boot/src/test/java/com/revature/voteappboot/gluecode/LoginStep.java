@@ -1,5 +1,5 @@
 package com.revature.voteappboot.gluecode;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.io.File;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-import com.revature.voteappboot.pages.VoteAppHome;
+
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
@@ -19,7 +19,7 @@ import io.cucumber.java.en.When;
 
 
 
-public class LogInStep {
+public class LoginStep {
 	static WebDriver driver;
 	
 	
@@ -43,13 +43,13 @@ public class LogInStep {
 
 	@When("the user enters the correct username")
 	public void the_user_enters_the_correct_username() {
-	  driver.findElement(By.id("username")).sendKeys("Test");
+	  driver.findElement(By.id("username")).sendKeys("test");
 	    
 	}
 
 	@When("the user enters the correct password")
 	public void the_user_enters_the_correct_password() {
-		driver.findElement(By.id("password")).sendKeys("Test");
+		driver.findElement(By.id("password")).sendKeys("test");
 	}
 	@When("the user clicks the login button")
 	public void the_user_clicks_the_login_button() {
@@ -70,7 +70,7 @@ public class LogInStep {
 
 	@Then("an incorrect credentials message will be displayed")
 	public void an_incorrect_credentials_message_will_be_displayed() {
-		System.out.println("incorrectcredentials");
+		driver.switchTo().alert().accept();
 	}
 
 	@When("the user enters the incorrect password")
