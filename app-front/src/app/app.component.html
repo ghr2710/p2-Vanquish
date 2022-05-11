@@ -44,7 +44,7 @@
      </div>
 
      <div class="card" *ngIf="loginStatus">
-      <h2 id="welcome"> Welcome back <span style="color: aqua;">{{showUser}} </span> ! </h2>
+      <h2 id="welcome"> Welcome back <span style="color: aqua;">{{showUser | uppercase}} </span> ! </h2>
       <div class="logout-body" style="height:100px;">
         <form >
             <input type="submit" id="submit" value="Logout" (click)="logout()">
@@ -53,10 +53,11 @@
     </div>
 
      <div class="card">
-       <h3>Popular Posts | Recent Posts</h3>
-       <div class="popular-posts">Cake vs Pie</div><br>
-       <div class="popular-posts">Cats vs Dogs</div><br>
-       <div class="popular-posts">Reading vs Painting</div>
+       <h3>Recent Posts</h3>
+       
+       <div *ngFor="let element of posts | slice:0:3; let i=index" class="popular-posts"> <span style="color: rgb(0, 255, 68)" id="option1">{{element.option1}} </span > VS <span style="color:rgb(241, 253, 6)" id="option2"> {{element.option2}} </span> </div><br>
+       <!-- <div class="popular-posts">Cats vs Dogs</div><br>
+       <div class="popular-posts">Reading vs Painting</div> -->
      </div>
       <div class="card">
        <h3>Register Today!</h3>

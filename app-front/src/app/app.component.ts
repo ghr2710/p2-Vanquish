@@ -24,6 +24,7 @@ export class AppComponent {
   passMessage = ""; //password match validation message 
   reveal = "password";
   post: any;
+  posts: any;
   showUser = " ";
 
   async login() {
@@ -41,6 +42,7 @@ export class AppComponent {
       this.loginStatus= true;  //show or hide posts by setting this var true/false 
       sessionStorage.setItem('In-Use', String(this.loginStatus));
      this.showUser = loggedInUser.username;
+     this.getPosts(); //recent posts for the side panel 
     }
     else{
       alert("Username or Password is incorrect")
@@ -94,6 +96,19 @@ showPass(){
     this.reveal ="password"
   }
 }
+
+
+async getPosts() {
+  let resp = await fetch('http://localhost:8080/post'); //posts end point
+  if (resp.status===200) {
+    this.posts = await resp.json();
+
+    this.posts = this.posts.sort((a, b) => new Date(b.datePosted).getTime() - new Date(a.datePosted).getTime());
+   
+  }
+}
+
+
 
 
 
