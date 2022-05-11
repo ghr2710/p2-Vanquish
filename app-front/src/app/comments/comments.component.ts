@@ -18,11 +18,20 @@ export class CommentsComponent implements OnInit {
     
    
      this.getComments();
+     this.getCreateComment();
    }
 
+  
    async getComments() {
     
     let resp = await fetch('http://localhost:8080/comment/post/' + this.postID);
+    if (resp.status===200) {
+      this.comments = await resp.json();
+    }
+  }
+  async getCreateComment() {
+    
+    let resp = await fetch('http://localhost:8080/comment');
     if (resp.status===200) {
       this.comments = await resp.json();
     }

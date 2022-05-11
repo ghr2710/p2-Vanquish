@@ -1,40 +1,49 @@
 package com.revature.voteappboot.services;
 
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import com.revature.voteappboot.classes.User;
+import com.revature.voteappboot.data.CommentRepository;
+import com.revature.voteappboot.data.PostRepository;
+import com.revature.voteappboot.data.UserRepository;
+import com.revature.voteappboot.exceptions.IncorrectCredsException;
+import com.revature.voteappboot.exceptions.UserAlreadyExistsException;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import deployed.classes.User;
-import deployed.exceptions.IncorrectCredsException;
-import deployed.exceptions.UserAlreadyExistsException;
-import deployed.exceptions.UserDoesNotExistException;
-import deployed.services.userService;
-import dev.chopra.IncorrectCredentialsException;
-import dev.chopra.UsernameAlreadyExistsException;
+
 
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 	
-	@Mock
-	private UserDAO userDAO;
+	@MockBean
+	private UserRepository userRepository;
+	@MockBean
 	
-	@InjectMocks
-	userService userServ= new userService();
+	private CommentRepository commentRepository;
+	@MockBean
+	private PostRepository postRepository;
+	@Autowired
+	private userService userServ;
+	
 	
 	
 	public void CreateAcctsuccessfully() throws UserAlreadyExistsException {
 		User u = new User();
 		
 		// mock userDao.create(u)
-		when(userDao.create(u)).thenReturn("TestUser");
+		when(userRepository.save(u)).thenReturn("TestUser");
 		
 		Boolean result = userServ.createAcct(u);
 		
@@ -47,7 +56,7 @@ public class UserServiceTest {
 		u.setUsername("kchopr");
 		
 		// mock userDao.create(newUser)
-		when(userDao.create(u)).thenReturn(0);
+		when(userRepository.save(u)).thenReturn(1);
 		
 		assertThrows(UserAlreadyExistsException.class, () -> {
 			userServ.createAcct(u);
@@ -62,7 +71,7 @@ public class UserServiceTest {
 		mockUser.setUsername(username);
 		mockUser.setPassword(password);
 		
-		when(userDAO.getByUsername(username)).thenReturn(mockUser);
+		when(userRepository.findByUsername(username)).thenReturn(mockUser);
 		
 		User actualUser = userServ.logIn(username, password);
 		
@@ -76,7 +85,7 @@ public class UserServiceTest {
 		String password = "1234567890";
 		
 		// we need to mock userDao.getByUsername(username)
-		when(userDao.getByUsername(username)).thenReturn(null);
+		when(userRepository.findByUsername(username)).thenReturn(null);
 		
 		assertThrows(IncorrectCredsException.class, () -> {
 			// put the code that we're expecting to throw the exception
