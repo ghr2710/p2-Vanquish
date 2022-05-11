@@ -24,6 +24,8 @@ export class AppComponent {
   passMessage = ""; //password match validation message 
   reveal = "password";
   post: any;
+  showUser = " ";
+
   async login() {
     let credentials = {
       username:(<HTMLInputElement>document.getElementById('username')).value,
@@ -38,6 +40,7 @@ export class AppComponent {
       sessionStorage.setItem('Auth-Token', loggedInUser.username);
       this.loginStatus= true;  //show or hide posts by setting this var true/false 
       sessionStorage.setItem('In-Use', String(this.loginStatus));
+     this.showUser = loggedInUser.username;
     }
     else{
       alert("Username or Password is incorrect")
