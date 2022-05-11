@@ -1,7 +1,9 @@
 package com.revature.voteappboot.classes;
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 @Entity
 @Table
 public class Post {
@@ -16,6 +18,9 @@ public class Post {
 	private int option1vote;
 	private int option2vote;
 	private int totalVotes;
+	@OneToMany
+	@JoinColumn(name="postid")
+	private List<Comment> comments;
 	
 	public Post() {
 		postid = 0;
@@ -27,6 +32,7 @@ public class Post {
 		option1vote = 0;
 		option2vote = 0;
 		totalVotes = 0;
+		comments = new ArrayList<>();
 	}
 	
 	public Post(int id, String username, Date day, String body, String op1, String op2, int numVotes1, int numVotes2, int total) {
@@ -96,6 +102,12 @@ public class Post {
 	}
 	public void setTotalVotes(int totalVotes) {
 		this.totalVotes = totalVotes;
+	}
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 	
 
