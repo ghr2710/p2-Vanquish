@@ -8,12 +8,14 @@ import { CommentsComponent } from './comments/comments.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     CommentsComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    
  
   ],
   imports: [
