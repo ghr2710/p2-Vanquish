@@ -22,6 +22,7 @@ export class AppComponent {
   }
 */
   passMessage = ""; //password match validation message 
+  reveal = "password";
   post: any;
   async login() {
     let credentials = {
@@ -82,7 +83,14 @@ export class AppComponent {
   }
 
 
+showPass(){
 
+  if( this.reveal != "text"){
+    this.reveal = "text";
+  } else if( this.reveal == "text"){
+    this.reveal ="password"
+  }
+}
 
 
 
