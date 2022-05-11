@@ -68,8 +68,8 @@
          <input type="password" id="password1" name="password1" placeholder="password" required><img id="eye" src="assets/img/eye.png"> 
          <input type="password" id="password2" name="password2" placeholder="confirm password" required>
   
-         <p id="validate-pass"  style="color:rgb(250, 117, 117); font-size: 14px;"> </p>
-         <button type="button" onclick="">Submit</button>
+         <p id="passMessage"  style="color:rgb(255 199 199); font-size: 14px;">{{passMessage}} </p>
+         <button type="button" (click)="PassValidation()">Submit</button>
      </form>
      </div>
    </div>
