@@ -76,7 +76,34 @@ public class LoginStep {
 	@When("the user enters the incorrect password")
 	public void the_user_enters_the_incorrect_password() {
 		driver.findElement(By.id("password")).sendKeys("durfhfhf");
-	    
 	}
+		@When("the user enters a username and password")
+		public void the_user_enters_a_username_and_password() {
+			driver.findElement(By.id("username1")).sendKeys("sunny");
+			driver.findElement(By.id("password1")).sendKeys("sunny");
+			driver.findElement(By.id("password2")).sendKeys("sunny");
+			
+			
 }
+
+		@Then("a message box will display stating that a user was successfully created")
+		public void a_message_box_will_display_stating_that_a_user_was_successfully_created() {
+			driver.findElement(By.id("submit2")).click();
+			driver.findElement(By.id("passMessage")).getText();
+		}
+
+		@When("the user enters a username that is already taken")
+		public void the_user_enters_a_username_that_is_already_taken() {
+			driver.findElement(By.id("username1")).sendKeys("test");
+		}
+
+		@Then("a message box will display stating that the username is taken")
+		public void a_message_box_will_display_stating_that_the_username_is_taken() {
+			driver.findElement(By.id("submit2")).click();
+			driver.findElement(By.id("passMessage")).getText();
+		}
+
+
+	}
+
 

@@ -16,12 +16,11 @@ export class CommentsComponent implements OnInit {
  
    ngOnInit(): void {
     
-   
+    
      this.getComments();
-     this.getCreateComment();
    }
 
-  
+   
    async getComments() {
     
     let resp = await fetch('http://localhost:8080/comment/post/' + this.postID);
@@ -29,19 +28,15 @@ export class CommentsComponent implements OnInit {
       this.comments = await resp.json();
     }
   }
-  async getCreateComment() {
-    
-    let resp = await fetch('http://localhost:8080/comment');
-    if (resp.status===200) {
-      this.comments = await resp.json();
-    }
-  }
+  
+  
+
 
    // a method that renders the posts matching the post id with the comment 
 
-  loadComments(){
+  loadComments() {
     let m = document.getElementById("postID").textContent;
     this.getComments();
   }
 
-  }
+}
