@@ -30,7 +30,6 @@ private userService userServ;
 	
 	@PostMapping
 	public ResponseEntity<Comment> createComment(@RequestBody Comment c){
-		System.out.println(c.getRelatedPost());
 		 c = userServ.createComment(c);
 		 
 		if (c != null) {

@@ -18,7 +18,7 @@ public class Post {
 	private int option1vote;
 	private int option2vote;
 	private int totalVotes;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.MERGE)
 	@JoinColumn(name="postid")
 	private List<Comment> comments;
 	
