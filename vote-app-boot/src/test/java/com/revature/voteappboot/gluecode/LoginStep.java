@@ -1,5 +1,5 @@
 package com.revature.voteappboot.gluecode;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.io.File;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-import com.revature.voteappboot.pages.VoteAppHome;
+
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
