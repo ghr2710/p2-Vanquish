@@ -2,7 +2,11 @@
 #commentButton{
 width: 15%;
  margin-left: 85%; 
- background-color: black; 
+ font-size: 1.4vw;
+ padding-left: 3px;
+ padding-right: 3px;
+
+ background-color:  #1D3557; 
  box-shadow: none;
  overflow-wrap: break-word;
  display: block;
@@ -14,12 +18,14 @@ width: 15%;
 
 #commentToggle{
   width: 15%;
+  font-size: 1.4vw;
    margin-bottom: 10px; 
    cursor: pointer;
-   overflow-wrap: break-word;
+   /* overflow-wrap: break-word; */
    float: right;
    text-align: center;
-   background-color: rgb(24, 22, 45); 
+   /* background-color: rgb(24, 22, 45);  */
+  text-shadow: #464c55;
    box-shadow: none;
   display: block; 
    border-radius: 0px 0px 5px 5px;
@@ -36,7 +42,7 @@ textarea{
 
 }
 #commentButton:hover {
-    background-color:#1D3557;
+    background-color:#394a6c;
   }
 
 
@@ -60,3 +66,10 @@ filter: brightness(300%);
         font-family: 'Oleo Script Swash Caps', cursive;
         font-size: 23px;
      }
+
+     @media screen and (max-width: 800px) {
+      #commentButton {   
+       float: right;
+      }
+      
+    }
