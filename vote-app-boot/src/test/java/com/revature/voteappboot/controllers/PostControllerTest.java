@@ -28,11 +28,14 @@ import com.revature.voteappboot.services.userService;
 @SpringBootTest(classes = VoteAppBootApplication.class)
 public class PostControllerTest {
 	@MockBean
-	private userService userServ;
-	@MockBean
 	private PostRepository postRepo;
+
 	@Autowired
 	private PostController postController;
+
+	@Autowired
+	userService userServ;
+
 	@Autowired
 	private WebApplicationContext context;
 
@@ -49,16 +52,12 @@ public class PostControllerTest {
 	public void createPostSuccessfully()  {
 		Post newPost = new Post();
 
-		// mock userDao.create(newUser)
 		Post mockPost = new Post();
 		mockPost.setPostId(1);
 		when(postRepo.save(newPost)).thenReturn(mockPost);
 
 		Post result = userServ.createPost(newPost);
 
-		// the behavior that i'm looking for is that the
-		// method returns the User with their newly generated ID,
-		// so i want to make sure the ID was generated (not the default)
 		assertNotEquals(0, result.getPostId());
 	}
 
@@ -67,12 +66,10 @@ public class PostControllerTest {
 		List<Post> mockPostList = Collections.emptyList();
 		when(userServ.getAllPosts()).thenReturn(mockPostList);
 
-		mockMvc.perform(get("/pets"))
+		mockMvc.perform(get("/post"))
 		.andExpect(status().isOk())
 		.andExpect(content().json(jsonMapper.writeValueAsString(mockPostList)));
 	}
-
-
 
 
 }

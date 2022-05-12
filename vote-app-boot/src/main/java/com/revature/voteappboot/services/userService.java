@@ -54,7 +54,7 @@ public class userService {
 		}
 
 	}
-	
+
 	public Post createPost(Post p) {
 		int id = postRepo.save(p).getPostId();
 
@@ -94,10 +94,10 @@ public class userService {
 	public List<Comment> getComments(int postId) {
 		return commentRepo.findByPostid(postId);
 	}
-	
+
 	public Vote addVote(Vote v) throws VoteAlreadyExistsException {
 		Vote search = voteRepo.findByUsernameAndPostid(v.getUsername(), v.getPostId());
-		
+
 		if(search == null) {
 			String uName = voteRepo.save(v).getUsername();
 			return v;
