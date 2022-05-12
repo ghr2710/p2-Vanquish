@@ -2,6 +2,7 @@ package com.revature.voteappboot.gluecode;
 
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -101,6 +102,22 @@ public class LoginStep {
 		public void a_message_box_will_display_stating_that_the_username_is_taken() {
 			driver.findElement(By.id("submit2")).click();
 			driver.findElement(By.id("passMessage")).getText();
+		}
+		@When("the user enters option1")
+		public void the_user_enters_option1() {
+		    
+			driver.findElement(By.name("option1name")).sendKeys("Tom");
+		}
+
+		@When("the user enters option2")
+		public void the_user_enters_option2() {
+			driver.findElement(By.name("option2name")).sendKeys("Jerry");
+		}
+
+
+		@Then("a post will be created by clicking the post button")
+		public void a_post_will_be_created_by_clicking_the_post_button() {
+			driver.findElement(By.id("submit3")).click();
 		}
 
 
