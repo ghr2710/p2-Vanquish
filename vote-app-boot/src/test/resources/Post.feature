@@ -7,8 +7,8 @@ Scenario: successful login
 		Given the user is on the home page
 		When the user enters the correct username
 		And the user enters the correct password
-		And the user clicks the login button
-		Then a message box will display welcoming the user
+		Then the user clicks the login button
+		
 		
 		
 	Scenario: post option1 vs option2
