@@ -16,9 +16,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.revature.voteappboot.VoteAppBootApplication;
+import com.revature.voteappboot.classes.Comment;
 import com.revature.voteappboot.classes.Post;
 import com.revature.voteappboot.classes.User;
 import com.revature.voteappboot.classes.Vote;
+import com.revature.voteappboot.data.CommentRepository;
 import com.revature.voteappboot.data.PostRepository;
 import com.revature.voteappboot.data.UserRepository;
 import com.revature.voteappboot.data.VoteRepository;
@@ -37,6 +39,8 @@ public class UserServiceTest {
 	private PostRepository postRepo;
 	@MockBean
 	private VoteRepository voteRepo;
+	@MockBean
+	private CommentRepository commentRepo;
 
 	@Autowired
 	userService userServ;
@@ -57,8 +61,8 @@ public class UserServiceTest {
 	public void registerUsernameTaken() {
 		User u = new User();
 		u.setUsername("kman");
-
-		// mock userDao.create(newUser)
+		User mockUser = new User();
+		mockUser.setUsername("kman");
 		when(userRepo.save(u)).thenReturn(u);
 
 		assertThrows(UserAlreadyExistsException.class, () -> {
@@ -120,6 +124,17 @@ public class UserServiceTest {
 
 		assertNotEquals(0, result.getPostId());
 	}
+	
+	@Test 
+	public void createCommentSuccessfully() {
+		Comment c = new Comment();
+		Comment mockComment = new Comment();
+		c.setCommentId(1);
+		when(commentRepo.save(c)).thenReturn(mockComment);
+		Comment result = userServ.createComment(c);
+		
+		assertNotNull(result.getCommentId());
+	}
 
 	@Test
 	public void viewPostsSuccessfully() {
@@ -130,6 +145,14 @@ public class UserServiceTest {
 		assertNotNull(posts);
 	}
 
+	@Test
+	public void viewCommentsSuccessfully() {
+		when(commentRepo.findAll()).thenReturn(Collections.emptyList());
+		
+		List<Comment> comments = userServ.getComments(1);
+		
+		assertNotNull(comments);
+	}
 	@Test
 	public void addVoteSuccessfully() throws VoteAlreadyExistsException {
 		Vote v = new Vote();
